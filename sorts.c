@@ -405,9 +405,10 @@ void printArray( int * array, int size )
 int main( int argc, char ** argv )
 {
   int * items ;
-  int max = 100 ;
-  unsigned long long arrSize = 10000000 ;
+  int max = 100000000 ;
+  unsigned long long arrSize = 100000000 ;
 
+  printf("Creating an array of %llu random numbers between 1 and %d...\n", arrSize, max) ;
   items = (int*)malloc(sizeof(int)*arrSize ) ;
   if (!items)
   {
@@ -429,7 +430,7 @@ int main( int argc, char ** argv )
 
   //printArray(items, arrSize) ;
 
-  printf("begin sort\n");
+  printf("Begin sorting...\n");
 
   // Generic sorts ahoy
 
@@ -438,10 +439,10 @@ int main( int argc, char ** argv )
   //insertionSort(items, arrSize, sizeof(int), &shift_int, &swap_int, &find_imin_int) ; 
   //shellSort(items, arrSize, sizeof(int), &compare_int_ascending, &swap_int) ;
   //heapSort(items, arrSize, sizeof(int), &compare_int_ascending, &swap_int) ;
-  quickSort(items, arrSize, sizeof(int), &compare_int_ascending, &swap_int) ;
-  //mergeSort(items, arrSize, sizeof(int), &compare_int_ascending, &copy_int) ;
+  //quickSort(items, arrSize, sizeof(int), &compare_int_ascending, &swap_int) ;
+  mergeSort(items, arrSize, sizeof(int), &compare_int_ascending, &copy_int) ;
 
-  printf("done sort\n");
+  printf("Done!\n");
 
   //printArray(items, arrSize) ;
 
